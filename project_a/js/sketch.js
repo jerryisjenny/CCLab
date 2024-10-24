@@ -59,7 +59,7 @@ function preload() {
     music = loadSound("js/Joep Beving - Paris s'enflamme.mp3")
 }
 function setup() {
-    music.play()
+    music.loop();
     let canvas = createCanvas(800, 500);
     canvas.parent("p5-canvas-container");
     colorMode(HSB);
@@ -125,6 +125,10 @@ function draw() {
             }
         }
     } else if (sceneControl == 2 || sceneControl == 2.5) {
+        textAlign(CENTER);
+        textSize(20);
+        textFont("Lucida Grande");
+        text("I bloom here.", 400, 475);
         push();
         translate(400, 250);
         fill(255);
@@ -227,6 +231,10 @@ function drawScene1() {
 
         ball(ballX[i], ballY[i]);
     }
+    textAlign(CENTER);
+    textSize(20);
+    textFont("Lucida Grande");
+    text("I sprout from here.", 400, 475);
 }
 
 function mouseClicked() {
@@ -261,6 +269,7 @@ function drawCoin(x, y, fillOpa, strokeOpa) {
     fill(197, 0, 90, fillOpa);
     circle(0, 0, 50);
     textAlign(CENTER);
+    textFont("Arial");
     strokeWeight(0.2);
     textSize(50);
     fill(0, fillOpa);
@@ -357,6 +366,11 @@ function drawPetal(s) {
 }
 
 function drawScene3() {
+    textAlign(CENTER);
+    textSize(20);
+    fill(255);
+    textFont("Lucida Grande");
+    text("I return to here.", 400, 475);
     push();
     translate(400, 250);
     noStroke();
