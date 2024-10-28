@@ -33,7 +33,7 @@ let scaleIncrement = 0.15;
 let firstLayerGrowthSpeed = 0.05;
 let baseGrowthSpeed = 0.02;
 let layerAddInterval = 30;
-let baseRotationSpeed = 0.5; // 基础旋转速度
+let baseRotationSpeed = 0.5;
 let isFullyGrown = false;
 let shouldRotate = false;
 
@@ -452,7 +452,7 @@ function clearReset() {
     firstLayerGrowthSpeed = 0.05;
     baseGrowthSpeed = 0.02;
     layerAddInterval = 30;
-    baseRotationSpeed = 0.5; // 基础旋转速度
+    baseRotationSpeed = 0.5;
     isFullyGrown = false;
     shouldRotate = false;
 
