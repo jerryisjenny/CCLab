@@ -53,7 +53,7 @@ let diam = [];
 let fruitOpa = 1;
 let boom = false;
 let fruitScale = 0;
-
+// load sound
 function preload() {
     coinsound = loadSound("js/coin.wav");
     music = loadSound("js/Joep Beving - Paris s'enflamme.mp3")
@@ -64,6 +64,7 @@ function setup() {
     canvas.parent("p5-canvas-container");
     colorMode(HSB);
     angleMode(DEGREES);
+    // generate position of gears(prevent overlapping)
     gearNum = 6;
     let attempts = 0;
     while (gearX.length < gearNum && attempts < 100) {
@@ -92,7 +93,7 @@ function setup() {
     }
 
     gearNum = gearX.length;
-
+    // define small circles orinigal position
     for (let i = 0; i < gearNum; i++) {
         ballBoolean.push(0);
     }
@@ -100,7 +101,7 @@ function setup() {
         ballX.push(-50);
         ballY.push(-50);
     }
-
+    // boom
     for (let i = 0; i < 3000; i++) {
         m[i] = width / 2;
         n[i] = height / 2;
@@ -112,7 +113,7 @@ function setup() {
 
 function draw() {
     background(0, 0, 0);
-
+    //transition between scene1 and scene2
     if (sceneControl == 0 || sceneControl == 1) {
         drawScene1();
         if (sceneControl == 1) {
@@ -154,7 +155,7 @@ function draw() {
         drawCurrentFlowerState();
 
         pop();
-
+        //transition between scene2 and scene3
         if (sceneControl == 2.5 && frameCount - scene2Time < 50) {
             background(0, 0, 0, (frameCount - scene2Time) / 50);
             mouseclick = 0;
@@ -170,13 +171,12 @@ function draw() {
 
 function drawScene1() {
     fill(197, 0, 90);
-    //noStroke();
     rect(75, 100, 10, 100);
     strokeWeight(2);
     stroke(255);
-    //noStroke();
     line(150, 0, 150, 500);
     noStroke();
+    //draw gears
     for (let n = 0; n < gearX.length; n++) {
         push();
         translate(gearX[n], gearY[n]);
@@ -185,7 +185,6 @@ function drawScene1() {
         fill(197, 12, 100, 0.4);
         beginShape();
 
-        //noStroke();
         for (let i = 0; i < 360; i += angleStep) {
             let angle3 = i;
             let angle4 = i + angleStep / 2;
@@ -197,18 +196,14 @@ function drawScene1() {
             vertex(x2, y2);
         }
         endShape(CLOSE);
-        // stroke(0)
-        // strokeWeight(2);
         fill(197, 20, 100, 0.15);
-        //noFill()
-
         ellipse(0, 0, gearRadius[n], gearRadius[n]);
         pop();
     }
 
     coinSlotDist = dist(mouseX, mouseY, 100, 100);
     drawCoin(mouseX, mouseY, fillOpa, strokeOpa);
-
+    // small circles movement
     for (let i = 0; i < gearNum; i++) {
         if (ballBoolean[i] != 0 && lerpBool < gearNum) {
             ballX[i] = gearX[i];
@@ -236,7 +231,7 @@ function drawScene1() {
     textFont("Lucida Grande");
     text("I sprout from here.", 400, 475);
 }
-
+//insert the coin
 function mouseClicked() {
     if (coinSlotDist < 100 && gearRotateangle[0] == 0) {
         fillOpa = 0;
@@ -282,6 +277,7 @@ function drawCoin(x, y, fillOpa, strokeOpa) {
 function growAndRotateFlower() {
     if (frameCount % layerAddInterval == 0 && layers.length < maxLayers) {
         let s = firstScale + scaleIncrement * layers.length;
+        //learn in other cs course
         let newLayer = {
             s: s,
             currentScale: 0,
@@ -379,6 +375,7 @@ function drawScene3() {
         fruitScale += 0.01;
     }
     scale(fruitScale);
+    // fruit
     beginShape();
     for (var a = 0; a < 360; a += 0.1) {
         let xoff = cos(a) + 1;
@@ -395,6 +392,7 @@ function drawScene3() {
 
     inc += 0.01;
     pop();
+    //boom
     if (mouseclick >= 1) {
         boom = true;
     }
@@ -421,7 +419,7 @@ function drawScene3() {
         }
     }
 }
-//transition
+//return to scene1
 function clearReset() {
     sceneControl = 0;
 
