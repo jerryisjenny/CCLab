@@ -16,9 +16,9 @@ function setup() {
   // no adjustments in the setup function needed...
   let canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent("p5-canvas-container");
-
+  angleMode(DEGREES)
   // ...except to adjust the dancer's name on the next line:
-  dancer = new YourNameDancer(width / 2, height / 2);
+  dancer = new Jerry(width / 2, height / 2);
 }
 
 function draw() {
@@ -32,33 +32,142 @@ function draw() {
 
 // You only code inside this class.
 // Start by giving the dancer your name, e.g. LeonDancer.
-class YourNameDancer {
+class Jerry {
   constructor(startX, startY) {
     this.x = startX;
     this.y = startY;
+    this.flowermoveRight = false;
+    this.leave = 0;
+    //this.flowermoveUp = false;
     // add properties for your dancer here:
     //..
     //..
     //..
   }
   update() {
-    // update properties here to achieve
-    // your dancer's desired moves and behaviour
+    if (this.flowermoveRight) {
+      this.x += 0.15;
+      this.leave += 0.05
+      if (this.x > width / 2 + 15) {
+        this.flowermoveRight = false;
+      }
+    } else {
+      this.x -= 0.15;
+      this.leave -= 0.05
+      if (this.x < width / 2 - 15) {
+        this.flowermoveRight = true;
+      }
+    }
+
+    // if (this.flowermoveUp) {
+    //   this.y += 0.1;
+    //   if (this.y > height / 2 + 10) {
+    //     this.flowermoveUp = false;
+    //   }
+    // } else {
+    //   this.y -= 0.1;
+    //   if (this.y < height / 2 - 10) {
+    //     this.flowermoveUp = true;
+    //   }
+    // }
   }
+
+  // update properties here to achieve
+  // your dancer's desired moves and behaviour
+
   display() {
     // the push and pop, along with the translate 
     // places your whole dancer object at this.x and this.y.
     // you may change its position on line 19 to see the effect.
     push();
-    translate(this.x, this.y);
+    translate(width / 2, height / 2);
 
     // ******** //
     // ⬇️ draw your dancer from here ⬇️
 
+    noFill();
+    stroke(68, 187, 25)
+    strokeWeight(5)
+    beginShape();
+    vertex(this.x - width / 2, 0)
+    bezierVertex(-30 + this.x - width / 2, 35, -10, 85, 3, 83)
+    endShape();
 
+    fill(68, 187, 25)
+    stroke(0)
+    strokeWeight(1)
+    beginShape();
+    curveVertex(0, 85)
+    curveVertex(-7, 75 + this.leave)
+    curveVertex(-20, 72 + this.leave)
+    curveVertex(-40, 80 + this.leave)
+    curveVertex(-50, 95 + this.leave)
+    curveVertex(-40, 90 + this.leave)
+    curveVertex(-15, 95 + this.leave)
+    curveVertex(0, 85)
+    endShape(CLOSE)
 
+    beginShape();
+    curveVertex(-3, 85)
+    //curveVertex(5, 77 + this.leave)
+    curveVertex(7, 75 + this.leave)
+    curveVertex(20, 72 + this.leave)
+    curveVertex(40, 80 + this.leave)
+    curveVertex(50, 95 + this.leave)
+    curveVertex(40, 90 + this.leave)
+    curveVertex(15, 95 + this.leave)
+    curveVertex(-3, 85)
+    endShape(CLOSE)
 
+    push();
+    translate(this.x - width / 2, this.y - height / 2)
 
+    stroke(0)
+    strokeWeight(1)
+    for (let i = 0; i < 360; i += 1) {
+      fill(246, 213, 39)
+      if (345 == i || i == 0 || i == 15) {
+        push();
+        rotate(i)
+        ellipse(0, 0, 130, 20)
+        pop();
+      }
+      if (325 == i || i == 35) {
+        push();
+        rotate(i)
+        ellipse(0, 0, 115, 20)
+        pop();
+      }
+      if (300 == i || i == 60) {
+        push();
+        rotate(i)
+        ellipse(0, 0, 100, 20)
+        pop();
+      }
+      if (270 == i) {
+        push();
+        rotate(i)
+        ellipse(0, 0, 90, 20)
+        pop();
+      }
+    }
+
+    fill(150, 89, 43)
+    ellipse(0, 0, 100, 60)
+    fill(0)
+    ellipse(-18, -7, 10, 17)
+    ellipse(18, -7, 10, 16)
+    fill(255)
+    circle(-19, -11, 4)
+    circle(17, -11, 4)
+
+    noFill();
+    strokeWeight(1.5)
+    beginShape();
+    vertex(-25, 10)
+    bezierVertex(-10, 20, 30, 15, 30, 5)
+    endShape();
+    pop();
 
     // ⬆️ draw your dancer above ⬆️
     // ******** //

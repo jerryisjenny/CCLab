@@ -376,6 +376,7 @@ function drawScene3() {
     }
     scale(fruitScale);
     // fruit
+    //reference: https://www.google.com/url?q=https%3A%2F%2Feditor.p5js.org%2Frh3900%2Fsketches%2FE3JzvkYlT&sa=D
     beginShape();
     for (var a = 0; a < 360; a += 0.1) {
         let xoff = cos(a) + 1;
@@ -393,6 +394,7 @@ function drawScene3() {
     inc += 0.01;
     pop();
     //boom
+    //reference: https://www.google.com/url?q=https%3A%2F%2Feditor.p5js.org%2Frh3900%2Fsketches%2FvInUBJMU5&sa=D
     if (mouseclick >= 1) {
         boom = true;
     }
