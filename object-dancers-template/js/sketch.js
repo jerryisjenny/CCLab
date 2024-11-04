@@ -45,6 +45,7 @@ class Jerry {
     //..
   }
   update() {
+    //flower movement
     if (this.flowermoveRight) {
       this.x += 0.15;
       this.leave += 0.05
@@ -84,7 +85,7 @@ class Jerry {
 
     // ******** //
     // ⬇️ draw your dancer from here ⬇️
-
+    //branch
     noFill();
     stroke(68, 187, 25)
     strokeWeight(5)
@@ -92,7 +93,7 @@ class Jerry {
     vertex(this.x - width / 2, 0)
     bezierVertex(-30 + this.x - width / 2, 35, -10, 85, 3, 83)
     endShape();
-
+    //leaves
     fill(68, 187, 25)
     stroke(0)
     strokeWeight(1)
@@ -121,7 +122,7 @@ class Jerry {
 
     push();
     translate(this.x - width / 2, this.y - height / 2)
-
+    //petal
     stroke(0)
     strokeWeight(1)
     for (let i = 0; i < 360; i += 1) {
@@ -151,7 +152,7 @@ class Jerry {
         pop();
       }
     }
-
+    //face
     fill(150, 89, 43)
     ellipse(0, 0, 100, 60)
     fill(0)
@@ -169,16 +170,8 @@ class Jerry {
     endShape();
     pop();
 
-    // ⬆️ draw your dancer above ⬆️
-    // ******** //
 
-    // the next function draws a SQUARE and CROSS
-    // to indicate the approximate size and the center point
-    // of your dancer.
-    // it is using "this" because this function, too, 
-    // is a part if your Dancer object.
-    // comment it out or delete it eventually.
-    this.drawReferenceShapes()
+    // this.drawReferenceShapes()
 
     pop();
   }
