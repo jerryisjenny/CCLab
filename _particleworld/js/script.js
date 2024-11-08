@@ -8,7 +8,7 @@ function setup() {
   canvas.parent("p5-canvas-container");
   angleMode(DEGREES)
   for (let i = 0; i < NUM_OF_PARTICLES; i++) {
-    particles[i] = new Particle(i, i % 50 + 1);
+    particles[i] = new Particle(i);
   }
 }
 
@@ -18,7 +18,7 @@ function draw() {
     particleR -= 0.05
   }
   if (particleR <= 0) {
-    particleR = 20;
+    particleR = 10;
   }
 
   // update and display
@@ -31,9 +31,9 @@ function draw() {
 
 class Particle {
   // constructor function
-  constructor(count, layer) {
+  constructor(count) {
     // properties (variables): particle's characteristics
-    this.layer = layer;
+    // this.layer = layer;
     this.count = count;
     this.x = width / 2;
     this.y = height / 2;
