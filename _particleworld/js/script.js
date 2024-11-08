@@ -2,7 +2,7 @@
 // Decide the initial number of particles.
 let NUM_OF_PARTICLES = 2000;
 let particles = [];
-let particleR = 20;
+let particleR = 10;
 function setup() {
   let canvas = createCanvas(800, 600);
   canvas.parent("p5-canvas-container");
@@ -47,8 +47,8 @@ class Particle {
     // this.x += this.speedX;
     // this.y += this.speedY;
     console.log(this.count ^ 0.1)
-    this.x = width / 2 + sin(frameCount % 360 + this.count * 2) * (this.count ^ 0.1) / particleR;
-    this.y = height / 2 + cos(frameCount % 360 + this.count * 2) * (this.count ^ 0.1) / particleR;
+    this.x = width / 2 + sin(frameCount % 360 + this.count * 2) * (this.count ** 1 / 2) / particleR;
+    this.y = height / 2 + cos(frameCount % 360 + this.count * 2) * (this.count ** 1 / 2) / particleR;
     // stroke(255);
     // circle(this.x + 10 * sin(frameCount % 360), this.y + 10 * cos(frameCount % 360), 1)
   }
