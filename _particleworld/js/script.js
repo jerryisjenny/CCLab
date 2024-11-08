@@ -1,5 +1,4 @@
 // CCLab Mini Project - 9.R Particle World Template
-
 // Decide the initial number of particles.
 let NUM_OF_PARTICLES = 2000;
 let particles = [];
@@ -8,10 +7,6 @@ function setup() {
   let canvas = createCanvas(800, 600);
   canvas.parent("p5-canvas-container");
   angleMode(DEGREES)
-  // if (mouseIsPressed) {
-  //   NUM_OF_PARTICLES += 100
-  // }
-  // generate particles
   for (let i = 0; i < NUM_OF_PARTICLES; i++) {
     particles[i] = new Particle(i, i % 50 + 1);
   }
