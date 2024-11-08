@@ -45,8 +45,7 @@ class Particle {
   // methods (functions): particle's behaviors
   update() {
     // this.x += this.speedX;
-    // this.y += this.speedY;
-    console.log(this.count ^ 0.1)
+    // this.y += this.speedY;s
     this.x = width / 2 + sin(frameCount % 360 + this.count * 2) * (this.count ** 1 / 2) / particleR;
     this.y = height / 2 + cos(frameCount % 360 + this.count * 2) * (this.count ** 1 / 2) / particleR;
     // stroke(255);
