@@ -1,0 +1,39 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  display: block;
+}
+
+.wrapper {
+  width: 600px;
+  margin: 50px auto;
+}
+
+.title-container {
+  background-color: pink;
+  height: 100px;
+  display: flex;
+}
+
+.nav-container {
+  background-color: gray;
+  height: 50px;
+}
+
+.flexbox-container {
+  background-color: aqua;
+  height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.box {
+  background-color: black;
+  width: 150px;
+  height: 150px;
+  margin: 20px;
+}
