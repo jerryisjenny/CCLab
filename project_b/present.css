@@ -1,0 +1,11 @@
+body {
+    background-color: black;
+    overflow-x: hidden;
+    margin: 0px;
+}
+
+#container2 {
+    display: block;
+    top: 0px;
+    left: 0px;
+}

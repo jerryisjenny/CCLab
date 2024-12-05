@@ -13,6 +13,7 @@ p {
 
 body {
     background-color: black;
+    overflow-x: hidden;
 }
 
 /* .wrapper {
@@ -22,9 +23,9 @@ body {
 
 .title-format {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 3%;
+    /* justify-content: center;
+    align-items: center; */
+    margin-left: 7%;
 }
 
 .title {
@@ -33,85 +34,263 @@ body {
     font-weight: 800;
     font-style: normal;
     font-variation-settings: "ROND" 0;
+    /* font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal; */
     font-size: 10vw;
     color: aliceblue;
 }
 
 .introduction-format {
-    font-family: "Orbitron", sans-serif;
+    /* font-family: "Orbitron", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
+    font-style: normal; */
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
     font-style: normal;
+    font-optical-sizing: auto;
     font-size: 3vw;
     color: lightgray;
-    margin: 100px;
+    margin-left: 70%;
+    margin-top: 200px;
+    /* margin: 100px;
     padding-top: 25px;
     padding-left: 50px;
-    padding-right: 50px;
+    padding-right: 50px; */
     height: 45vh;
-    border: 1px solid;
+    border: none;
 
 }
 
-/* .introcontent-format {
-    font-family: "Orbitron", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 50px;
-    color: lightgray;
-} */
+
+.polaroid {
+    perspective: 500px;
+    transform-style: preserve-3d;
+}
+
+.polaroid1 {
+    scale: 0.7;
+    position: relative;
+    transform-origin: center;
+    rotate: -10deg;
+    transition: transform 1s cubic-bezier(0.1, 0.8, 0.2, 1);
+    /* transition: transform cubic-bezier(0.23, 1, 0.320, 1); */
+}
+
+.polaroid1~.polaroid2,
+.polaroid1~.polaroid3 {
+    transition: transform 1s cubic-bezier(0.1, 0.8, 0.2, 1);
+}
+
+.polaroid1:hover {
+    scale: 0.8;
+    transform: translateZ(50px) translate(-200px, 100px);
+    transition: transform 1s cubic-bezier(0.1, 0.8, 0.2, 1);
+    /* scale: 1.05; */
+}
+
+.polaroid1:active {
+    transform: translateZ(-10px) translate(-20px, 20px);
+    transition: transform 0.2s cubic-bezier(0.1, 0.8, 0.2, 1);
+    filter: contrast(110%);
+}
+
+.polaroid1:hover~.polaroid3,
+.polaroid1:hover~.polaroid2 {
+    transform: translateZ(-500px) translate(-20px, 20px);
+    transition: transform 1s cubic-bezier(0.1, 0.8, 0.2, 1);
+}
+
+.polaroid2 {
+    scale: 0.7;
+    position: relative;
+    transform-origin: center;
+    rotate: 30deg;
+    transition: transform 1s cubic-bezier(0.1, 0.8, 0.2, 1);
+}
+
+.polaroid2:hover {
+    transform: translateZ(50px) translate(-20px, 20px);
+    transition: transform 1s cubic-bezier(0.1, 0.8, 0.2, 1);
+    /* scale: 1.05; */
+}
+
+polaroid2~.polaroid1,
+.polaroid2~.polaroid3 {
+    transition: transform 1s cubic-bezier(0.1, 0.8, 0.2, 1);
+}
+
+.polaroid1:has(~ .polaroid2:hover),
+.polaroid2:hover~.polaroid3 {
+    transform: translateZ(-500px) translate(-20px, 20px);
+    transition: transform 1s cubic-bezier(0.1, 0.8, 0.2, 1);
+}
+
+.polaroid3 {
+    scale: 0.7;
+    position: relative;
+    transform-origin: center;
+    rotate: -15deg;
+    transition: transform 1s cubic-bezier(0.1, 0.8, 0.2, 1);
+}
+
+.polaroid3:hover {
+    transform: translateZ(50px) translate(-20px, 20px);
+    transition: transform 1s cubic-bezier(0.1, 0.8, 0.2, 1);
+    /* scale: 1.05; */
+}
+
+polaroid3~.polaroid1,
+.polaroid3~.polaroid2 {
+    transition: transform 1s cubic-bezier(0.1, 0.8, 0.2, 1);
+}
+
+.polaroid2:has(~ .polaroid3:hover),
+.polaroid1:has(~ .polaroid3:hover) {
+    transform: translateZ(-500px) translate(-20px, 20px);
+    transition: transform 1s cubic-bezier(0.1, 0.8, 0.2, 1);
+}
 
 #script1-container {
-    zoom: 75%;
-    width: 306px;
-    height: 413px;
-    margin: 30px;
-    padding: 0;
-    border-radius: 5px 5px 10px 10px;
-    /* padding-top: calc(160px / 3);
-    padding-bottom: calc(320px / 3);
-    padding-left: calc(80px / 3);
-    padding-right: calc(80px /3); */
-    padding: calc(160px / 3) calc(80px /3) calc(320px / 3) calc(80px / 3);
-    background-color: white;
-    box-shadow: rgb(111, 111, 111) 4px 5px 8px 2px;
+    position: absolute;
+    margin-top: 46px;
+    margin-left: 50px;
+    top: -5vh;
+    left: 60vw;
+    pointer-events: none;
+    /* transform: rotate(-10deg); */
+    z-index: 2;
 }
 
+
 #script2-container {
-    zoom: 75%;
-    width: 306px;
-    margin: 30px;
-    padding: 0;
-    border-radius: 5px 5px 10px 10px;
-    /* padding-top: calc(160px / 3);
-    padding-bottom: calc(320px / 3);
-    padding-left: calc(80px / 3);
-    padding-right: calc(80px /3); */
-    padding: calc(160px / 3) calc(80px /3) calc(320px / 3) calc(80px / 3);
-    background-color: white;
-    box-shadow: rgb(111, 111, 111) 4px 5px 8px 2px;
+
+    position: absolute;
+    margin-top: 46px;
+    margin-left: 50px;
+    top: 30vh;
+    left: 30vw;
+    pointer-events: none;
+    /* transform: rotate(30deg); */
+    z-index: 2;
 }
 
 #script3-container {
-    zoom: 75%;
-    width: 306px;
-    margin: 30px;
-    padding: 0;
-    border-radius: 5px 5px 10px 10px;
-    /* padding-top: calc(160px / 3);
-    padding-bottom: calc(320px / 3);
-    padding-left: calc(80px / 3);
-    padding-right: calc(80px /3); */
-    padding: calc(160px / 3) calc(80px /3) calc(320px / 3) calc(80px / 3);
-    background-color: white;
-    box-shadow: rgb(111, 111, 111) 4px 5px 8px 2px;
+
+    position: absolute;
+    margin-top: 46px;
+    margin-left: 50px;
+    top: 60vh;
+    left: 40vw;
+    /* transform: rotate(30deg); */
+    z-index: 2;
 }
 
-.polaroid {
+/* .polaroid {
     display: flex;
     /* margin: 10px; */
-    flex-direction: row;
-    justify-content: center;
+/* flex-direction: row;
+justify-content: center;
+} */
 
+.button1 {
+    display: flex;
+    position: relative;
+    /* margin: 10px; */
+    /* align-items: center; */
+    justify-content: center;
+    top: 120vh;
+}
+
+button.deathbed {
+
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    /* text-decoration: none; */
+    font-family: "Geostar", serif;
+    font-weight: 600;
+    font-style: normal;
+    color: #382b22;
+    text-transform: uppercase;
+    padding: 1.25em 2em;
+    background: #fff0f0;
+    /* border: 2px solid #b18597; */
+    border: none;
+    border-radius: 0.65em;
+    transform-style: preserve-3d;
+    transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+
+button.deathbed::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #f9c4d2;
+    border-radius: 0.65em;
+    /* box-shadow: 0 0 0 2px #b18597, 0 0.625em 0 0 #ffe3e2; */
+    box-shadow: 0 0.625em 0 0 #ffe3e2;
+    transform: translate3d(0, 0.75em, -1em);
+    transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+
+button.deathbed:hover {
+    background: #ffe9e9;
+    transform: translate(0, 0.25em);
+}
+
+button.deathbed:hover::before {
+    /* box-shadow: 0 0 0 2px #b18597, 0 0.5em 0 0 #ffe3e2; */
+    box-shadow: 0 0.5em 0 0 #ffe3e2;
+    transform: translate3d(0, 0.5em, -1em);
+}
+
+button.deathbed:active {
+    background: #ffe9e9;
+    transform: translate(0em, 0.75em);
+}
+
+button.deathbed:active::before {
+    /* box-shadow: 0 0 0 2px #b18597, 0 0 #ffe3e2; */
+    box-shadow: 0 0 #ffe3e2;
+    transform: translate3d(0, 0, -1em);
+}
+
+#photo1 {
+    position: absolute;
+    width: 500px;
+    top: -5vh;
+    left: 60vw;
+    /* transform: rotate(-10deg); */
+    z-index: 1;
+}
+
+#photo2 {
+    position: absolute;
+    width: 500px;
+    top: 30vh;
+    left: 30vw;
+    /* transform: rotate(30deg); */
+    /* top: 150vh; */
+    /* z-index: 2; */
+}
+
+#photo3 {
+    position: absolute;
+    width: 500px;
+    top: 60vh;
+    left: 40vw;
+    /* transform: rotate(30deg); */
+    /* top: 150vh; */
+    z-index: 1;
 }

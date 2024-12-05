@@ -1,7 +1,7 @@
 function setup() {
-    let canvas = createCanvas(306, 413);
+    let canvas = createCanvas(397, 404);
     //canvas.parent("script2-container")
-    background(0);
+    background(255);
 }
 
 function draw() {
