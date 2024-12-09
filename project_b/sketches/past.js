@@ -3,6 +3,7 @@ let mouseWheelup = 0;
 let clicks = 0;
 let showRect = false;
 let rectX, rectY;
+let img1Des = false;
 function preload() {
 }
 
@@ -28,8 +29,12 @@ function mousePressed() {
         }
         if (mouseX > width / 2 + 520 && mouseX < width / 2 + 580 && mouseY > height / 2 - 380 && mouseY < height / 2 - 320) {
             showRect = false;
+            img1Des = false;
         }
 
+        if (images[0].x - 400 < mouseX && mouseX < images[0].x + 400 && images[0].y - 250 < mouseY && mouseY < images[0].y + 250) {
+            img1Des = true;
+        }
     }
 
 }
@@ -63,10 +68,15 @@ function draw() {
             fill(255, 0, 0);
             circle(width / 2 + 550, height / 2 - 350, 30);
         }
+
         // console.log(i, images[i].x, 'x', images[i].xSpeed);
         // console.log(i, images[i].y, 'y', images[i].ySpeed, images[i].yiniSpeed);
     }
-    // console.log(clicks)
+    if (img1Des) {
+        fill(0);
+        textSize(100);
+        text('hi', 400, 400);
+    }
 
 }
 

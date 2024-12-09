@@ -86,7 +86,7 @@ body {
 
 .polaroid1:hover {
     scale: 0.8;
-    transform: translateZ(50px) translate(-200px, 100px);
+    transform: translateZ(50px) translate(-20px, 10px);
     transition: transform 1s cubic-bezier(0.1, 0.8, 0.2, 1);
     /* scale: 1.05; */
 }
@@ -166,16 +166,17 @@ polaroid3~.polaroid1,
 
 
 #script2-container {
-
+    /* display: block; */
     position: absolute;
     margin-top: 46px;
     margin-left: 50px;
     top: 30vh;
     left: 30vw;
-    pointer-events: none;
+    /* pointer-events: none; */
     /* transform: rotate(30deg); */
     z-index: 2;
 }
+
 
 #script3-container {
 
