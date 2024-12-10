@@ -23,7 +23,8 @@ function setup() {
 }
 function draw() {
     background(0);
-
+    fill(255)
+    text("Frame a scene through your lens. Let the image rest in stillness while your voice weaves its essence. Speak what it represents — a thought, a feeling, a fragment of now.", 950, 650, 250, 300)
     canvas.parent("container2");
     if (!isPaused) {
         cam.loadPixels();
@@ -52,7 +53,7 @@ function draw() {
 
 function mousePressed() {
 
-    if (!isPaused) {
+    if (!isPaused && 520 <= mouseX && mouseX <= 570 && 720 <= mouseY && mouseY <= 780) {
         // img.pause();
         cam.pause();
         img.get();
