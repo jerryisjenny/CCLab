@@ -4,7 +4,7 @@ let isPaused = false;
 let capturedFrame;
 let speechRec;
 let displayedText = "";
-let words = ["hello", "cat", "dog", "love", "happy", "sad", "good", "wink", "heart broken", "yummy", "angry", "hot", "cold", "sleepy", "sick", "scared"];
+let words = ["hi", "cat", "dog", "love", "happy", "sad", "good", "wink", "heartbroken", "yummy", "angry", "hot", "cold", "sleepy", "sick", "scared"];
 let emojis = ["👋", "🐱", "🐶", "❤️", "😊", "😭", "👍", "😉", "💔", "😋", "😡", "🥵", "🥶", "🥱", "🤒", "😱"];
 function setup() {
     canvas = createCanvas(windowWidth, windowHeight);
@@ -34,33 +34,38 @@ function draw() {
         img.updatePixels();
     }
 
-    image(img, 0, 0);
+    image(img, 220, 200);
     // speech();
     stroke(255);
     noFill();
-    rect(800, 300, 500, 300);
+    rect(950, 300, 500, 300);
     fill(255);
     noStroke();
-    text(displayedText, 800, 300, 480, 180);
-
+    text(displayedText, 950, 300, 480, 180);
+    fill(255)
+    circle(550, 750, 70)
+    noFill();
+    stroke(0)
+    strokeWeight(2);
+    circle(550, 750, 55)
 }
 
 function mousePressed() {
-    // cam.pause();
+
     if (!isPaused) {
-        img.pause();
+        // img.pause();
+        cam.pause();
         img.get();
-
-
         save(img, 'captured_image', 'png');
         localStorage.setItem('capturedImage', img.canvas.toDataURL());
         img.loadPixels();
         let pixelData = Array.from(img.pixels);
         localStorage.setItem('capturedPixels', JSON.stringify(pixelData));
+
         isPaused = true;
         // console.log("1")
     } else {
-        img.play();
+        cam.play();
         isPaused = false;
     }
 }

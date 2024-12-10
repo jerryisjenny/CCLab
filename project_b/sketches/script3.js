@@ -6,7 +6,11 @@ function preload() {
     // assets.push(loadImage('assets/example1.jpg'));
     // assets.push(loadImage('assets/example2.jpg'));
     // assets.push(loadImage('assets/example3.jpg'));
-    assets.push(loadImage('assets/example5.jpeg'));
+    assets.push(loadImage('assets/childhood1.jpg'));
+    assets.push(loadImage('assets/childhood2.JPG'));
+    assets.push(loadImage('assets/childhood3.JPG'));
+    assets.push(loadImage('assets/childhood4.JPG'));
+    assets.push(loadImage('assets/childhood5.JPG'));
 }
 function setup() {
     createCanvas(397, 404);
@@ -35,7 +39,7 @@ function generate() {
             Pixels.push(capturedPixels[i]);
         }
     }
-    for (let i = 0; i < 500000; i++) {
+    for (let i = 0; i < 6000000; i++) {
         Pixels.push(255, 255, 255, 255);
     }
     for (let y = 0; y < generatedImage.height; y++) {
